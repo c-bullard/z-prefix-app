@@ -1,12 +1,15 @@
-require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const port = 8080;
+const cors = require('cors');
 
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => res.status(200).json({ status: 'ok' }));
 
+app.use('/users', require('./routes/users'));
+
 app.listen(port, () => console.log(`Server listening on port ${port}`));
+
+module.exports = app;
