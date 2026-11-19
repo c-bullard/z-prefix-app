@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
     .first()
     .then((existing) => {
       if (existing) {
-        return res.status(409).json({ error: 'user already exists' });
+        return res.status(409).json({ error: 'username already exists' });
       }
 
       return bcrypt
@@ -63,7 +63,7 @@ router.post('/', (req, res) => {
             })
             .returning(['id', 'first_name', 'last_name', 'username']),
         )
-        .then(([user]) => res.status(201).json(user));
+        .then((rows) => res.status(201).json(rows[0]));
     })
     .catch((error) => res.status(500).json({ error: error.message }));
 });

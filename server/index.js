@@ -10,6 +10,8 @@ app.get('/', (req, res) => res.status(200).json({ status: 'ok' }));
 
 app.use('/users', require('./routes/users'));
 
+app.use('/items', require('./routes/items'));
+
 app.listen(port, () => console.log(`Server listening on port ${port}`));
 
 module.exports = app;
