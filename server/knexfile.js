@@ -11,7 +11,7 @@ module.exports = {
       password: 'docker',
       user: 'postgres',
       port: 5432,
-      database: 'z-prefix',
+      database: 'z_prefix',
     },
   },
 };
